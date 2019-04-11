@@ -5,7 +5,6 @@
  */
 package by.bsu.model.entity;
 
-import by.bsu.model.logic.MaxRangeComparator;
 import java.io.Serializable;
 
 public class Transport implements Serializable{
@@ -30,7 +29,7 @@ public class Transport implements Serializable{
         this.carrying = carrying;
     }
 
-    public double getSeating() {
+    public double getSeats() {
         return seating;
     }
 

@@ -50,7 +50,7 @@ public class TotalSeatingTest {
     public void testCalcTotalSeating() {
 //        System.out.println("calcTotalSeating");
         double expResult = 512;
-        double result = TotalSeating.calcTotalSeating(company);
+        double result = TotalSeats.calcTotalSeating(company);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
