@@ -5,9 +5,8 @@
  */
 package by.bsu.model.entity;
 
-import java.io.Serializable;
 
-public class Transport implements Serializable{
+public class Transport{
     private double carrying;
     private double seating;
     private double maxRange;
