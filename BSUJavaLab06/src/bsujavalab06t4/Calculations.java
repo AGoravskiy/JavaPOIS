@@ -8,6 +8,7 @@ package bsujavalab06t4;
 import java.util.LinkedList;
 import java.util.List;
 
+
 class Calculations {
     public static int CalcSum(int num){
         int sum = 0;
@@ -75,7 +76,7 @@ class Calculations {
     }
     
     public static boolean CheckSimple(int num){
-        if (num % 2 == 2) {
+        if (num % 2 == 0) {
             return num == 2;
         }
         
@@ -88,17 +89,37 @@ class Calculations {
         return divisor * divisor > num;
     }
     
-    public static boolean FindOllSimpleDivisors(int num){
-        if (num % 2 == 2) {
-            return num == 2;
-        }
-        
+    public static void FindOllSimpleDivisors(int num){
         int divisor = 3;
-       
-        while(divisor * divisor <= num && num % divisor != 0){
-            divisor += 2;
+        List<Integer> ollDivisors = new LinkedList<>();
+        ollDivisors.add(1);
+        while(divisor <= num){
+            if(num % divisor == 0 && CheckSimple(divisor)){
+                ollDivisors.add(divisor);
+            }
+            divisor +=2;
         }
         
-        return divisor * divisor > num;
+        for (Integer div : ollDivisors) {
+            System.out.print(div + " ");
+        }
+    }
+    
+    public static int CalcNod(int firstNum, int secondNum){
+        if (secondNum < 0)
+                secondNum = -secondNum;
+            if (firstNum < 0)
+                firstNum = -firstNum;
+            while (secondNum > 0)
+            {
+                int temp = secondNum;
+                secondNum = firstNum % secondNum;
+                firstNum = temp;
+            }
+            return firstNum;
+    }
+    
+    public static int CalcNok(int firstNum, int secondNum){
+        return Math.abs(firstNum * secondNum) / CalcNod(firstNum, secondNum);
     }
 }

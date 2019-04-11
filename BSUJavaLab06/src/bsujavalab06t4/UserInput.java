@@ -10,4 +10,9 @@ public class UserInput {
         System.out.println(msg);
         return sc.nextInt();
     }
+    
+    public static String inputChar(String msg){
+        System.out.println(msg);
+        return sc.toString();
+    }
 }

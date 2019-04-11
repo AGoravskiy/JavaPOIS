@@ -12,6 +12,8 @@
 без необходимости запускать их заново.
  */
 package bsujavalab06t4;
+
+import java.util.Scanner;
 //import bsujavalab06t4.View;
 
 public class BSUJavaLab06T4 {
@@ -23,31 +25,49 @@ public class BSUJavaLab06T4 {
         int maxDigit;
         boolean palindrome;
         boolean simple;
+        int firstNum;
+        int secondNum;
+        int nod;
+        int nok;
         
-        number = UserInput.input("Enter the number: ");
+        Scanner sc = new Scanner(System.in);
         
-        sum = Calculations.CalcSum(number);
-        View.print("The sum of number: " + sum);
+        do {
+            number = UserInput.input("Enter the number: ");
         
-        numOfDigit = Calculations.CalcNumbertOfDigits(number);
-        View.print("The number of digits: " + numOfDigit);
+            sum = Calculations.CalcSum(number);
+            View.print("The sum of number: " + sum);
         
-        numVariousDigits = Calculations.CalcNumberVariousDigits(number);
-        View.print("The number of various digits: " + numVariousDigits);
+            numOfDigit = Calculations.CalcNumbertOfDigits(number);
+            View.print("The number of digits: " + numOfDigit);
         
-        maxDigit = Calculations.CalcMaxDigit(number);
-        View.print("The maximum of digits: " + maxDigit);
+            numVariousDigits = Calculations.CalcNumberVariousDigits(number);
+            View.print("The number of various digits: " + numVariousDigits);
         
-        palindrome = Calculations.CheckPalindrome(number);
-        View.print("Is the number palidrome: " + palindrome);
+            maxDigit = Calculations.CalcMaxDigit(number);
+            View.print("The maximum of digits: " + maxDigit);
         
-        simple = Calculations.CheckSimple(number);
-        View.print("Is the number simple: " + simple);
+            palindrome = Calculations.CheckPalindrome(number);
+            View.print("Is the number palidrome: " + palindrome);
+        
+            simple = Calculations.CheckSimple(number);
+            View.print("Is the number simple: " + simple);
+        
+            View.print("Oll simple divisors:");
+            Calculations.FindOllSimpleDivisors(number);
+            View.print(" ");
+            
+            View.print("NOK & NOD for two natural numbers.");
+            firstNum = UserInput.input("Enter first number: ");
+            secondNum = UserInput.input("Enter second number: ");
+            
+            nod = Calculations.CalcNod(firstNum, secondNum);
+            View.print("NOD: " + nod);
+            
+            nok = Calculations.CalcNok(firstNum, secondNum);
+            View.print("NOK: " + nok);
+            
+            View.print("Repeat? (Enter 'y')");
+        } while (sc.next().charAt(0) == 'y');
     }
-    
-    
-    
-//        Сalculations = ContraryNumder.colculateContraryNumber(UserInput
-//                .input("Enter the number: "));
-//        View.print("The number of the contrary " + contraryNumber);
 }
